@@ -1,0 +1,8 @@
+<div class="content">
+	<app-info-box [info]="apiDefinition.info"></app-info-box>
+
+	<label>Paths:</label>
+	<app-paths-group *ngFor="let groupedPath of groupedPaths | keyvalue" [basePath]="groupedPath.key"
+					 [paths]="groupedPath.value"></app-paths-group>
+
+</div>

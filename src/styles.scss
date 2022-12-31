@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+.header {
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  border: black 2px solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+  &-accordion{
+    cursor: pointer;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 5px;
+
+
+  thead {
+    border-bottom: 2px solid ;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid;
+    white-space: pre;
+    overflow: hidden;
+  }
+
+}

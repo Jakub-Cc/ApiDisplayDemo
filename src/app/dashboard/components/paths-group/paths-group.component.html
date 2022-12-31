@@ -1,0 +1,28 @@
+<div (click)="headerClicked()" class="header header-accordion">/{{basePath}}
+	<i [ngClass]="folded?'la-angle-down':'la-angle-up'" class="la"></i>
+</div>
+
+<table *ngIf="!folded">
+	<thead>
+	<tr>
+		<th scope="col">Path</th>
+		<th scope="col">Method</th>
+		<th scope="col">Data Output</th>
+		<th scope="col">Parameters</th>
+		<th scope="col">Responses</th>
+	</tr>
+	</thead>
+	<tbody>
+	<ng-container *ngFor="let path of paths">
+		<ng-container *ngFor="let operation of path.operations">
+			<tr (click)="pathClicked(path)">
+				<td>{{path.path}}</td>
+				<td>{{operation.type}}</td>
+				<td>{{operation.produces | arrayToString}}</td>
+				<td>{{operation.parametersDesc}}</td>
+				<td>{{operation.responsesDesc}}</td>
+			</tr>
+		</ng-container>
+	</ng-container>
+	</tbody>
+</table>

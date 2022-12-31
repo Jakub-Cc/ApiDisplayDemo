@@ -1,0 +1,56 @@
+<div *ngIf="method">
+	<div (click)="headerClicked()" class="header header-accordion">
+		{{method.type}} - {{method.summary}}
+		<i [ngClass]="folded?'la-angle-down':'la-angle-up'" class="la"></i>
+	</div>
+	<ng-container *ngIf="!folded">
+		<table>
+			<thead>
+			<tr>
+				<th colspan="5">Parameters</th>
+			</tr>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Required</th>
+				<th scope="col">Type</th>
+				<th scope="col">Where</th>
+				<th scope="col">Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<ng-container *ngFor="let parameters of method.parameters">
+				<tr>
+					<td>{{parameters.name}}</td>
+					<td>{{parameters.required}}</td>
+					<td>{{parameters.type}}</td>
+					<td>{{parameters.in}}</td>
+					<td>{{parameters.description}}</td>
+				</tr>
+			</ng-container>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+			<tr>
+				<th colspan="4">Responses</th>
+			</tr>
+			<tr>
+				<th scope="col">Code</th>
+				<th scope="col">Description</th>
+				<th scope="col">Schema</th>
+				<th scope="col">Headers</th>
+			</tr>
+			</thead>
+			<tbody>
+			<ng-container *ngFor="let response of method.responses">
+				<tr>
+					<td>{{response.code}}</td>
+					<td>{{response.description}}</td>
+					<td>{{response.schema | json}}</td>
+					<td>{{response.headers | json}}</td>
+				</tr>
+			</ng-container>
+			</tbody>
+		</table>
+	</ng-container>
+</div>
